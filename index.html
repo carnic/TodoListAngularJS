@@ -5,6 +5,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
         <script src="app.js"></script>
         <script src="controller/todoListCtrl.js"></script>
+        <script src="services/TodoList.js"></script>
     </head>
     <body ng-app="todoList">
         <!--header-->
@@ -17,10 +18,10 @@
             </nav>
         </header>
         <!--body-->
-        <div ng-controller="todoListCtrl">
+        <div ng-controller="todoListCtrl"  ng-init="init()">
             <div id="tdItem" ng-repeat="item in todolist">
                 <input type="checkbox" />
-                <span ng-class="{strikethru: item.completed}">{{item.name}}</span>
+                <span ng-class="{strikethru: item.completed}">{{item.title}}</span>
                 <button class="delete" ng-click="deleteItem($index)">X</button>
             </div>
             <div id="tdItem">

@@ -1,10 +1,13 @@
-app.controller("todoListCtrl", function($scope){
+app.controller("todoListCtrl", function($scope, todoService){
     $scope.name = "Carol";
-    $scope.todolist = [
-        {name: "Item1", description: "one", completed: true},
-        {name: "Item2", description: "two", completed: false},
-        {name: "Item3", description: "three", completed: true}
-    ]
+
+    $scope.init = function(){
+        console.log("INIT");
+        todoService.getList().then(function(res){
+            $scope.todolist = res.data;
+        });
+       
+    }
 
     $scope.deleteItem = function(i){
         console.log("Delete"+i);
