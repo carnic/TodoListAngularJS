@@ -6,6 +6,7 @@
         <script src="app.js"></script>
         <script src="controller/todoListCtrl.js"></script>
         <script src="services/TodoList.js"></script>
+        <script src="filters/camelCaseSen.js"></script>
     </head>
     <body ng-app="todoList">
         <!--header-->
@@ -20,12 +21,12 @@
         <!--body-->
         <div ng-controller="todoListCtrl"  ng-init="init()">
             <div id="tdItem" ng-repeat="item in todolist">
-                <input type="checkbox" />
-                <span ng-class="{strikethru: item.completed}">{{item.title}}</span>
+                <input type="checkbox" ng-model="item.completed" ng-change="completedItem($index, item)" />
+                <span ng-class="{strikethru: item.completed}">{{item.title | camelCaseSen}}</span>
                 <button class="delete" ng-click="deleteItem($index)">X</button>
             </div>
             <div id="tdItem">
-                    <input type="text" name="item-name"/>
+                    <input type="text" name="item-name" ng-model="itemTitle"/>
                     <button ng-click="addItem()">Add Item</button>
             </div>
         </div>
