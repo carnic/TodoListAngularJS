@@ -26,12 +26,15 @@ a:visited, a{
     text-decoration: none;
 }
 
-#tdItem{
-    background-color:rgb(245, 244, 244);
+.itemPosition{
     width: 75%;
-    border: 1px solid silver;
     padding: 5px;
     margin: 0.5% 10%;
+}
+
+#tdItem{
+    background-color:rgb(245, 244, 244);
+    border: 1px solid silver;
 }
 
 #tdItem button.delete {
@@ -58,4 +61,16 @@ a:visited, a{
 
 .strikethru{
     text-decoration: line-through;
+}
+
+.error{
+    color: red;
+}
+
+.success{
+    color: green;
+}
+
+.description{
+    font-style: italic;
 }

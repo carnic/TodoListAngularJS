@@ -1,0 +1,15 @@
+<div ng-init="init()">
+    <div id="tdItem" ng-repeat="item in todolist" class="itemPosition">
+        <input type="checkbox" ng-model="item.completed" ng-change="completedItem($index, item)" />
+        <span ng-class="{strikethru: item.completed}">{{item.title | camelCaseSen}}</span>
+        <button class="delete" ng-click="deleteItem($index)">X</button>
+    </div>
+    <div id="tdItem" class="itemPosition">
+            <input type="text" placeholder="Item Name" ng-model="itemTitle"/>
+            <button ng:click="addItem()">Add Item</button>
+            <span ng-if="status" ng-class="{error: error, success: error!=true}">{{errorMessage}}</span>
+    </div>
+    <div class="itemPosition">
+        <button ng-click="selectAll()">Mark All Items Completed</button>
+    </div>
+</div>

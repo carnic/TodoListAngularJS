@@ -3,6 +3,7 @@
         <title>Todo-List</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
         <script src="app.js"></script>
         <script src="controller/todoListCtrl.js"></script>
         <script src="services/TodoList.js"></script>
@@ -14,21 +15,11 @@
             <p>Todo List</p>
             <nav>
                 <ul>
-                    <li><a href="#" >Home</a> | <a href="#" >About</a></li>
+                    <li><a href="#" >Home</a> | <a href="#!about" >About</a></li>
                 </ul>
             </nav>
         </header>
         <!--body-->
-        <div ng-controller="todoListCtrl"  ng-init="init()">
-            <div id="tdItem" ng-repeat="item in todolist">
-                <input type="checkbox" ng-model="item.completed" ng-change="completedItem($index, item)" />
-                <span ng-class="{strikethru: item.completed}">{{item.title | camelCaseSen}}</span>
-                <button class="delete" ng-click="deleteItem($index)">X</button>
-            </div>
-            <div id="tdItem">
-                    <input type="text" name="item-name" ng-model="itemTitle"/>
-                    <button ng-click="addItem()">Add Item</button>
-            </div>
-        </div>
+        <div ng-view></div>
     </body>
 </html>
